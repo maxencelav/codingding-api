@@ -21,3 +21,5 @@ Created with :
 * MongoDB
 * Mongoose
 * Passport [Documentation](http://www.passportjs.org/)
+* Body Parser [Documentation](https://www.npmjs.com/package/body-parser)
+* Cors [Documentation](https://www.npmjs.com/package/cors)
