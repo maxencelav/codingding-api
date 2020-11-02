@@ -3,12 +3,15 @@ REST API for CodingDing
 
 # Setup
 ```bash
+# Install all dependencies
 $ npm install
 
+# Install MongoDB if not existing
 $ brew update
 $ brew install mongodb
 
-$ node app.js
+# Start backend
+$ npm run backend
 ```
 
 ## Technologies
@@ -17,3 +20,4 @@ Created with :
 * Express 
 * MongoDB
 * Mongoose
+* Passport [Documentation](http://www.passportjs.org/)
