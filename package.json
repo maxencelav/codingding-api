@@ -4,7 +4,8 @@
   "description": "API for Coding Factory",
   "main": "index.js",
   "scripts": {
-    "backend": "node server.js"
+    "backend": "node server.js",
+    "mongo": "mongod --dbpath=backend/data"
   },
   "repository": {
     "type": "git",

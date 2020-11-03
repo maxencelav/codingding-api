@@ -1,36 +1,19 @@
 const User = require('../models/users.model.js');
 
 // Create and Save a new User
-exports.create = (req, res) => {
-
-    // Get variables from body
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const email = req.body.email;
-
-    // Validate request
-    if(!req.body.content) {
-        return res.status(400).send({
-            message: "User content can not be empty"
-        });
-    }
+exports.create = async (req, res) => {
 
     // Create a User
     const user = new User({
-        firstName: firstName,
-        lastName: lastName,
-        email: email
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
     });
 
     // Save User in the database
-    user.save()
-        .then(data => {
-            res.send(data);
-        }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the Note."
-        });
-    });
+    // TO DO : trop simple, à revoir
+    await user.save();
+    res.json(user);
 };
 
 // Retrieve and return all users from the database.
@@ -45,12 +28,35 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Find a single note with a noteId
+exports.findOne = (req, res) => {
+    User.findById(req.params.userId)
+        .then(user => {
+            if(!user) {
+                return res.status(404).send({
+                    message: "User not found with id " + req.params.userId
+                });
+            }
+            res.send(user);
+        }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "User not found with id " + req.params.userId
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving user with id " + req.params.userId
+        });
+    });
+};
+
+
 // Update a note identified by the noteId in the request
 exports.update = (req, res) => {
     // Validate Request
     if(!req.body.content) {
         return res.status(400).send({
-            message: "Note content can not be empty"
+            message: "User content can not be empty"
         });
     }
 
@@ -74,7 +80,7 @@ exports.update = (req, res) => {
             });
         }
         return res.status(500).send({
-            message: "Error updating note with id " + req.params.userId
+            message: "Error updating user with id " + req.params.userId
         });
     });
 };
@@ -85,14 +91,14 @@ exports.delete = (req, res) => {
         .then(user => {
             if(!user) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.userId
+                    message: "Cannot delete, User not found with id " + req.params.userId
                 });
             }
-            res.send({message: "Note deleted successfully!"});
+            res.send({message: "User deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.userId
+                message: "User not found with id " + req.params.userId
             });
         }
         return res.status(500).send({
