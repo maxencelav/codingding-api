@@ -4,7 +4,7 @@
   "description": "API for Coding Factory",
   "main": "index.js",
   "scripts": {
-    "backend": "node server.js",
+    "backend": "nodemon server.js",
     "mongo": "mongod --dbpath=backend/data"
   },
   "repository": {
@@ -25,5 +25,8 @@
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.11",
     "passport": "^0.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

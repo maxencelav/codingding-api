@@ -20,25 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e9112e-8b2a-416b-85b4-158d49d6a09c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/achievements.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/achievements.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/achievements.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/users.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/WiredTiger.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/_mdb_catalog.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/_mdb_catalog.wt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/collection-4-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/collection-4-647813263887921568.wt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/collection-7-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/collection-7-647813263887921568.wt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.2020-11-03T09-06-08Z-00000" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.2020-11-03T09-06-08Z-00000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/index-5-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-5-647813263887921568.wt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/index-6-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-6-647813263887921568.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/journal/WiredTigerLog.0000000003" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/journal/WiredTigerLog.0000000003" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/sizeStorer.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/users.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/users.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604326931043</updated>
       <workItem from="1604326933943" duration="12540000" />
-      <workItem from="1604394241611" duration="3523000" />
+      <workItem from="1604394241611" duration="3906000" />
     </task>
     <servers />
   </component>
