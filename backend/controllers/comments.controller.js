@@ -84,8 +84,8 @@ exports.update = (req, res) => {
 // Delete a comment with the specified comment in the request
 exports.delete = (req, res) => {
     Comment.findByIdAndRemove(req.params.commentId)
-        .then(user => {
-            if(!user) {
+        .then(comment => {
+            if(!comment) {
                 return res.status(404).send({
                     message: "Cannot delete, User not found with id " + req.params.commentId
                 });
