@@ -10,7 +10,8 @@ $ npm install
 $ brew update
 $ brew install mongodb
 
-# Start backend
+# Start API
+$ npm run mongo
 $ npm run backend
 ```
 
@@ -20,6 +21,6 @@ Created with :
 * Express 
 * MongoDB
 * Mongoose
-* Passport [Documentation](http://www.passportjs.org/)
+* Passport (for Google OAuth) [Documentation](http://www.passportjs.org/)
 * Body Parser [Documentation](https://www.npmjs.com/package/body-parser)
 * Cors [Documentation](https://www.npmjs.com/package/cors)
