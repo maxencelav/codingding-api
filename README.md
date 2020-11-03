@@ -21,6 +21,6 @@ Created with :
 * Express 
 * MongoDB
 * Mongoose
+* Nodemon [Documentation](https://github.com/remy/nodemon)
 * Passport (for Google OAuth) [Documentation](http://www.passportjs.org/)
 * Body Parser [Documentation](https://www.npmjs.com/package/body-parser)
-* Cors [Documentation](https://www.npmjs.com/package/cors)
