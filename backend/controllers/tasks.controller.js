@@ -3,6 +3,12 @@ const Task = require('../models/tasks.model.js');
 // Create and Save a new Achievement
 exports.create = async (req, res) => {
 
+    if(!req.body.name | !req.body.type) {
+        return res.status(400).send({
+            message: 'Fields all required.'
+        })
+    }
+
     // Create a Achievement
     const task = new Task({
         name: req.body.name,
@@ -16,10 +22,14 @@ exports.create = async (req, res) => {
         creatorId: req.body.creatorId
     });
 
-    // Save User in the database
-    // TO DO : trop simple, à revoir
-    await task.save();
-    res.json(task);
+    task.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Error while creating User."
+        })
+    });
 };
 
 // Retrieve and return all Achievement from the database.

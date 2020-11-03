@@ -3,6 +3,12 @@ const Achievement = require('../models/achievements.model.js');
 // Create and Save a new Achievement
 exports.create = async (req, res) => {
 
+    if(!req.body.name | !req.body.message) {
+        return res.status(400).send({
+            message: 'Fields all required.'
+        })
+    }
+
     // Create a Achievement
     const achievement = new Achievement({
         name: req.body.name,
@@ -11,9 +17,14 @@ exports.create = async (req, res) => {
     });
 
     // Save User in the database
-    // TO DO : trop simple, à revoir
-    await achievement.save();
-    res.json(achievement);
+    achievement.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Error while creating User."
+        })
+    });
 };
 
 // Retrieve and return all Achievement from the database.

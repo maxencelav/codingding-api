@@ -21,11 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b6e9112e-8b2a-416b-85b4-158d49d6a09c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/achievements.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/achievements.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/comments.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/comments.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/scrumboards.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/scrumboards.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/tasks.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/tasks.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/users.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/wishs.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/wishs.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +90,12 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900/-32.-1080.1920.1080@0.0.1440.900" timestamp="1604330738098" />
-    <state width="667" height="534" key="SwitcherDM" timestamp="1604400689741">
+    <state width="667" height="534" key="SwitcherDM" timestamp="1604426159351">
       <screen x="-32" y="-1080" width="1920" height="1080" />
     </state>
     <state width="667" height="534" key="SwitcherDM/0.0.1440.900/-32.-1080.1920.1080@-32.-1080.1920.1080" timestamp="1604400689741" />
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1604365061071" />
+    <state width="667" height="534" key="SwitcherDM/0.23.1440.877/-32.-1080.1920.1080@-32.-1080.1920.1080" timestamp="1604426159351" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1604367953162">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

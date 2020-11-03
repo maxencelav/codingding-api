@@ -3,6 +3,12 @@ const Scrumboard = require('../models/scrumboards.model.js');
 // Create and Save a new comment
 exports.create = async (req, res) => {
 
+    if(!req.body.name | !req.body.type) {
+        return res.status(400).send({
+            message: 'Fields all required.'
+        })
+    }
+
     // Create a comment
     const scrumboard = new Scrumboard({
         name: req.body.name,
@@ -13,11 +19,14 @@ exports.create = async (req, res) => {
         creatorId: req.body.creatorId
     });
 
-    // Save User in the database
-    // TO DO : trop simple, à revoir
-
-    await scrumboard.save();
-    res.json(scrumboard);
+    scrumboard.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Error while creating User."
+        })
+    });
 };
 
 // Retrieve and return all comment from the database.

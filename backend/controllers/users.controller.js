@@ -23,7 +23,7 @@ exports.create = async (req, res) => {
             res.status(500).send({
                 message: err.message || "Error while creating User."
             })
-    })
+    });
 };
 
 // Retrieve and return all users from the database.

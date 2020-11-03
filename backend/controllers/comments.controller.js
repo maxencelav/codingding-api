@@ -3,6 +3,12 @@ const Comment = require('../models/comments.model.js');
 // Create and Save a new comment
 exports.create = async (req, res) => {
 
+    if(!req.body.text) {
+        return res.status(400).send({
+            message: 'Fields all required.'
+        })
+    }
+
     // Create a comment
     const comment = new Comment({
         text: req.body.text,
@@ -11,10 +17,14 @@ exports.create = async (req, res) => {
         creatorId: req.body.creatorId
     });
 
-    // Save User in the database
-    // TO DO : trop simple, à revoir
-    await comment.save();
-    res.json(comment);
+    comment.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Error while creating User."
+        })
+    });
 };
 
 // Retrieve and return all comment from the database.
