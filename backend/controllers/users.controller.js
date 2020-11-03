@@ -3,6 +3,9 @@ const User = require('../models/users.model.js');
 // Create and Save a new User
 exports.create = async (req, res) => {
 
+    // TO DO: Before that, if all req.body are empty then
+
+
     // Create a User
     const user = new User({
         firstName: req.body.firstName,
@@ -11,7 +14,7 @@ exports.create = async (req, res) => {
     });
 
     // Save User in the database
-    // TO DO : trop simple, à revoir
+    // TO DO : user.save with handling error
     await user.save();
     res.json(user);
 };
@@ -53,12 +56,6 @@ exports.findOne = (req, res) => {
 
 // Update a note identified by the noteId in the request
 exports.update = (req, res) => {
-    // Validate Request
-    if(!req.body.content) {
-        return res.status(400).send({
-            message: "User content can not be empty"
-        });
-    }
 
     // Find note and update it with the request body
     User.findByIdAndUpdate(req.params.userId, {
