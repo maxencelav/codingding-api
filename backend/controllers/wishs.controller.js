@@ -58,8 +58,9 @@ exports.update = (req, res) => {
     // Find note and update it with the request body
     Wish.findByIdAndUpdate(req.params.wishId, {
         name: req.body.name,
-        message: req.body.message,
-        creatorId: req.body.creatorId,
+        date: Date.now(),
+        type: req.body.type,
+        creatorId: req.body.creatorId
     }, {new: true})
         .then(achievement => {
             if(!achievement) {

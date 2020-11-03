@@ -31,6 +31,7 @@ app.get('/', function (req, res) {
 require('./backend/routes/users.routes.js')(app);
 require('./backend/routes/achievements.routes.js')(app);
 require('./backend/routes/wishs.routes.js')(app);
+require('./backend/routes/comments.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {
