@@ -20,22 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e9112e-8b2a-416b-85b4-158d49d6a09c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/agenda.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/agenda.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/agenda.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/scrumboards.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/scrumboards.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/users.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/WiredTiger.turtle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/WiredTiger.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/collection-4-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/collection-4-647813263887921568.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/collection-8-5124422011797755516.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/collection-8-5124422011797755516.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.2020-11-03T09-06-08Z-00000" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.2020-11-03T09-06-08Z-00000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/diagnostic.data/metrics.interim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/index-5-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-5-647813263887921568.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/index-6-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-6-647813263887921568.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/index-9-5124422011797755516.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-9-5124422011797755516.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/journal/WiredTigerLog.0000000003" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/journal/WiredTigerLog.0000000003" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/sizeStorer.wt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/index-8-647813263887921568.wt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

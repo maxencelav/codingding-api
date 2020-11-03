@@ -3,20 +3,27 @@ const User = require('../models/users.model.js');
 // Create and Save a new User
 exports.create = async (req, res) => {
 
-    // TO DO: Before that, if all req.body are empty then
+    // Checks if all req.body are filled
+    if(!req.body.firstName | !req.body.lastName | !req.body.email) {
+        return res.status(400).send({
+            message: 'Fields all required.'
+        })
+    }
 
-
-    // Create a User
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email
     });
 
-    // Save User in the database
-    // TO DO : user.save with handling error
-    await user.save();
-    res.json(user);
+    user.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error while creating User."
+            })
+    })
 };
 
 // Retrieve and return all users from the database.
@@ -31,7 +38,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single note with a noteId
+// Find user by userId
 exports.findOne = (req, res) => {
     User.findById(req.params.userId)
         .then(user => {
@@ -54,7 +61,7 @@ exports.findOne = (req, res) => {
 };
 
 
-// Update a note identified by the noteId in the request
+// Update user data identified by the noteId in the request
 exports.update = (req, res) => {
 
     // Find note and update it with the request body
@@ -82,7 +89,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a note with the specified noteId in the request
+// Delete user with the specified userId in the request
 exports.delete = (req, res) => {
     User.findByIdAndRemove(req.params.userId)
         .then(user => {

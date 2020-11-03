@@ -15,6 +15,7 @@ exports.create = async (req, res) => {
 
     // Save User in the database
     // TO DO : trop simple, à revoir
+
     await scrumboard.save();
     res.json(scrumboard);
 };
