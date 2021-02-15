@@ -9,7 +9,6 @@ module.exports = (app) => {
 
     app.get("/auth/google/redirect",passport.authenticate("google"),(req,res)=>{
         res.send(req.user);
-        res.send("you reached the redirect URI");
     });
 
     app.get("/auth/logout", (req, res) => {

@@ -4,7 +4,7 @@ const User = require('../models/users.model.js');
 exports.create = async (req, res) => {
 
     // Checks if all req.body are filled
-    if(!req.body.firstName | !req.body.lastName | !req.body.email) {
+    if(!req.body.firstName | !req.body.lastName | !req.body.email | !req.body.profilePic) {
         return res.status(400).send({
             message: 'Fields all required.'
         })
@@ -13,7 +13,8 @@ exports.create = async (req, res) => {
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
+        profilePic: req.body.profilePic
     });
 
     user.save()
@@ -68,7 +69,8 @@ exports.update = (req, res) => {
     User.findByIdAndUpdate(req.params.userId, {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
+        profilePic: req.body.profilePic
     }, {new: true})
         .then(user => {
             if(!user) {

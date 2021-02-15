@@ -36,8 +36,10 @@ require('./backend/routes/tasks.routes.js')(app);
 require('./backend/routes/agenda.routes.js')(app);
 
 // listen for requests
-app.listen(7000, () => {
-    console.log("Server running on port 7000");
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log("Server running on port " + port);
 });
 
 const passport = require("passport");
