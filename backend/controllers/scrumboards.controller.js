@@ -101,7 +101,7 @@ exports.delete = (req, res) => {
                 return res.status(404).send({
                     message: "Cannot delete, User not found with id " + req.params.scrumboardId
                 });
-            }
+            }git
             res.send({message: "User deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
