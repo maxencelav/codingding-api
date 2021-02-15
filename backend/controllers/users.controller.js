@@ -14,7 +14,11 @@ exports.create = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        profilePic: req.body.profilePic
+        profilePic: req.body.profilePic, 
+        classYear: req.body.classYear,
+        classStatus: req.body.classStatus,
+        gitHubLinks: req.body.gitHubLinks
+
     });
 
     user.save()
@@ -70,7 +74,10 @@ exports.update = (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        profilePic: req.body.profilePic
+        profilePic: req.body.profilePic,
+        classYear: req.body.classYear,
+        classStatus: req.body.classStatus,
+        gitHubLinks: req.body.gitHubLinks
     }, {new: true})
         .then(user => {
             if(!user) {

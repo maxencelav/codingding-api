@@ -18,7 +18,11 @@ passport.use(new GoogleStrategy(
                     googleId: profile.id,
                     firstName: profile.name.givenName,
                     lastName: profile.name.familyName, 
-                    profilePic: profile.photos[0].value
+                    profilePic: profile.photos[0].value,
+                    email: profile.emails[0].value,
+                    classYear: "",
+                    classStatus: "",
+                    gitHubLinks: ""
                 }).save()
                     .then((newUser) => {
                     done(null, newUser)

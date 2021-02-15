@@ -6,7 +6,10 @@ const userSchema = new Schema({
     lastName: String,
     email: String,
     profilePic: String,
-    googleId: String
+    classYear: Number,
+    classStatus: String,
+    googleId: String,
+    gitHubLinks: Array
 });
 
 module.exports = mongoose.model('Users', userSchema);
