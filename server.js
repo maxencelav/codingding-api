@@ -11,10 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
-const dbConfig = require("./config/database.config.js");
+// TODO : add CookieParser
+const config = require("./config/env.config.js");
 const mongoose = require("mongoose");
-
-mongoose.connect(dbConfig.url, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(() => {
+ 
+// DB Connection
+mongoose.connect(config.mongoURL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(() => {
     console.log('Database connection successful')
 }).catch(err => {
     console.error('Database connection error', err);
@@ -23,7 +25,7 @@ mongoose.connect(dbConfig.url, {useNewUrlParser: true, useUnifiedTopology: true,
 
 // Welcome message
 app.get('/', function (req, res) {
-    res.json({"msg": "Codingding API"});
+    res.json({name: 'CodingdingAPI'})
 })
 
 // Import routes
@@ -42,6 +44,7 @@ app.listen(port, () => {
     console.log("Server running on port " + port);
 });
 
+// Initialize Passport w/ Google Login
 const passport = require("passport");
 require('./config/passportSetup');
 
