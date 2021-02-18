@@ -3,19 +3,19 @@ module.exports = (app) => {
     const {isLoggedIn} = require('../middlewares/middleware')
 
     // Create a new User
-    app.post('/achievements', achievements.create);
+    app.post('/achievements', isLoggedIn, achievements.create);
 
     // Retrieve all Users
-    app.get('/achievements', achievements.findAll);
+    app.get('/achievements', isLoggedIn, achievements.findAll);
 
     // Informations of One User
-    app.get('/achievements/:achievementId', achievements.findOne);
+    app.get('/achievements/:achievementId', isLoggedIn, achievements.findOne);
 
     //  Update a User with userId
-    app.put('/achievements/:achievementId', achievements.update);
+    app.put('/achievements/:achievementId', isLoggedIn, achievements.update);
 
     // Delete a User with userId
-    app.delete('/achievements/:achievementId', achievements.delete);
+    app.delete('/achievements/:achievementId', isLoggedIn, achievements.delete);
 
     // When user likes an Achievement
     app.get('/achievements/:achievementId/like', isLoggedIn, achievements.like);

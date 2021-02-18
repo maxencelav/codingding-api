@@ -128,7 +128,7 @@ exports.addMember = (req, res) => {
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
             }
-            res.send(achievement);
+            res.redirect('/scrumboards');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -156,7 +156,7 @@ exports.addMember = (req, res) => {
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
             }
-            res.send(achievement);
+            res.redirect('/scrumboards');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({

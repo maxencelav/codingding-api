@@ -128,7 +128,7 @@ exports.like = (req, res) => {
                     message: "Success not found with id " + req.params.achievementId
                 });
             }
-            res.send(achievement);
+            res.redirect('/achievements');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -156,7 +156,7 @@ exports.dislike = (req, res) => {
                     message: "Success not found with id " + req.params.achievementId
                 });
             }
-            res.send(achievement);
+            res.redirect('/achievements');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
