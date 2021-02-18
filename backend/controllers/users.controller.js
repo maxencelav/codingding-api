@@ -17,6 +17,7 @@ exports.create = async (req, res) => {
         profilePic: req.body.profilePic, 
         classYear: req.body.classYear,
         classStatus: req.body.classStatus,
+        classLocation: req.body.classLocation,
         gitHubLinks: req.body.gitHubLinks
 
     });
@@ -77,6 +78,7 @@ exports.update = (req, res) => {
         profilePic: req.body.profilePic,
         classYear: req.body.classYear,
         classStatus: req.body.classStatus,
+        classLocation: req.body.classLocation,
         gitHubLinks: req.body.gitHubLinks
     }, {new: true})
         .then(user => {

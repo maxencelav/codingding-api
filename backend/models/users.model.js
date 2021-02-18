@@ -8,6 +8,7 @@ const userSchema = new Schema({
     profilePic: String,
     classYear: Number,
     classStatus: String,
+    classLocation: String,
     googleId: String,
     gitHubLinks: Array
 });

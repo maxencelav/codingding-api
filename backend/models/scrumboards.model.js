@@ -7,6 +7,7 @@ const scrumboardSchema = new Schema({
     type: String,
     description: String,
     date: Date,
+    members: Array,
     creatorId: String
 });
 

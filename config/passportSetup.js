@@ -1,14 +1,14 @@
 // Passport setup
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const keys = require('./google.config');
+const config = require('./env.config');
 const User = require('../backend/models/users.model.js');
 
 passport.use(new GoogleStrategy(
     {
-        clientID: keys.clientID,
-        clientSecret: keys.clientSecret,
-        callbackURL: keys.callbackURL
+        clientID: config.clientID,
+        clientSecret: config.clientSecret,
+        callbackURL: config.callbackURL
     },
     (accessToken, refreshToken, profile, done) => {
         console.log(profile);
@@ -33,13 +33,3 @@ passport.use(new GoogleStrategy(
         })
     }
 ));
-
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
-        done(null, user);
-    });
-});
