@@ -141,7 +141,9 @@ exports.like = (req, res) => {
     });
 
 
-};// User dislike
+};
+
+// User dislike
 exports.dislike = (req, res) => {
 
     // Find note and update it with the request body
