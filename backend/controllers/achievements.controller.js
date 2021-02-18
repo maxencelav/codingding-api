@@ -14,6 +14,7 @@ exports.create = async (req, res) => {
         name: req.body.name,
         message: req.body.message,
         creatorId: req.body.creatorId,
+        date: Date.now()
     });
 
     // Save User in the database
@@ -29,6 +30,7 @@ exports.create = async (req, res) => {
 
 // Retrieve and return all Achievement from the database.
 exports.findAll = (req, res) => {
+    console.log("User in achievement :" + req.user);
     Achievement.find()
         .then(achievements => {
             res.send(achievements);
@@ -69,7 +71,7 @@ exports.update = (req, res) => {
     Achievement.findByIdAndUpdate(req.params.achievementId, {
         name: req.body.name,
         message: req.body.message,
-        creatorId: req.body.creatorId,
+        creatorId: req.body.creatorId
     }, {new: true})
         .then(achievement => {
             if(!achievement) {
@@ -113,4 +115,54 @@ exports.delete = (req, res) => {
 };
 
 
-// 
+// User likes
+exports.like = (req, res) => {
+
+    // Find note and update it with the request body
+    Achievement.findByIdAndUpdate(req.params.achievementId, {
+        $set: {likes: req.user.id}
+    },{new: true})
+        .then(achievement => {
+            if(!achievement) {
+                return res.status(404).send({
+                    message: "Success not found with id " + req.params.achievementId
+                });
+            }
+            res.send(achievement);
+        }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Success not found with id " + req.params.achievementId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating Success with id " + req.params.achievementId
+        });
+    });
+
+
+};// User dislike
+exports.dislike = (req, res) => {
+
+    // Find note and update it with the request body
+    Achievement.findByIdAndUpdate(req.params.achievementId, {
+        $pull: {likes: req.user.id}
+    },{new: true})
+        .then(achievement => {
+            if(!achievement) {
+                return res.status(404).send({
+                    message: "Success not found with id " + req.params.achievementId
+                });
+            }
+            res.send(achievement);
+        }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Success not found with id " + req.params.achievementId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating Success with id " + req.params.achievementId
+        });
+    });
+};

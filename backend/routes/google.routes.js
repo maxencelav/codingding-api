@@ -7,12 +7,15 @@ module.exports = (app) => {
         scope: ["profile", "email"]
     }));
 
-    app.get("/auth/google/redirect",passport.authenticate("google"),(req,res)=>{
-        res.send(req.user);
+    app.get("/auth/google/redirect", passport.authenticate("google", {
+        successRedirect: '/'
+    }),(req,res)=>{
+        console.log("In Google Auth Login...");
     });
 
     app.get("/auth/logout", (req, res) => {
         req.logout();
-        res.send(req.user);
+        console.log('In Google Logout...')
+        res.redirect('/');
     });
 }
