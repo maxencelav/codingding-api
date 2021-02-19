@@ -80,7 +80,7 @@ exports.update = (req, res) => {
         classStatus: req.body.classStatus,
         classLocation: req.body.classLocation,
         gitHubLinks: req.body.gitHubLinks
-    }, {new: true})
+    }, {upsert: true})
         .then(user => {
             if(!user) {
                 return res.status(404).send({

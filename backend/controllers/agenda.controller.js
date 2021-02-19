@@ -71,7 +71,7 @@ exports.update = (req, res) => {
         profL2: req.body.profL2,
         classL3: req.body.classL3,
         profL3: req.body.profL3,
-    }, {new: true})
+    }, {upsert: true})
         .then(week => {
             if(!week) {
                 return res.status(404).send({

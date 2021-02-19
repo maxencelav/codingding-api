@@ -3,10 +3,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
-
+const env = require('dotenv').config();
+const cors = require('cors');
 
 // Create Express app
-const app = express();
+const app = express()
+
+// CORS
+app.use(cors({origin: '*'}));
 
 // Launch cookie-parser
 app.use(cookieParser())	
@@ -18,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Listen for request
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log("Server running on port " + port);
 });
@@ -27,6 +31,7 @@ const config = require("./config/env.config.js");
 const mongoose = require("mongoose");
  
 // DB Connection
+console.log('process.env.mongo: ' + process.env.PORT)
 mongoose.connect(config.mongoURL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(() => {
     console.log('Database connection successful')
 }).catch(err => {
@@ -67,8 +72,9 @@ require('./backend/routes/tasks.routes.js')(app);
 require('./backend/routes/agenda.routes.js')(app);
 
 // Welcome message
-app.get('/', isLoggedIn, function (req, res) {
-    res.send(`Welcome ${req.user.firstName}!`)
+app.get('/', function (req, res) {
+    //res.send(`Welcome ${req.user.firstName}!`)
+    res.send(`Codingding API`)
 })
 
 

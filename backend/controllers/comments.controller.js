@@ -71,7 +71,7 @@ exports.update = (req, res) => {
         date: Date.now(),
         wishId: req.body.wishId,
         creatorId: req.body.creatorId
-    }, {new: true})
+    }, {upsert: true})
         .then(comment => {
             if(!comment) {
                 return res.status(404).send({

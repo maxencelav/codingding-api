@@ -22,6 +22,7 @@ passport.use(new GoogleStrategy(
                     email: profile.emails[0].value,
                     classYear: "",
                     classStatus: "",
+                    classLocation: "",
                     gitHubLinks: ""
                 }).save()
                     .then((newUser) => {

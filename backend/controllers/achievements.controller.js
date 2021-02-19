@@ -2,7 +2,6 @@ const Achievement = require('../models/achievements.model.js');
 
 // Create and Save a new Achievement
 exports.create = async (req, res) => {
-
     if(!req.body.name | !req.body.message) {
         return res.status(400).send({
             message: 'Fields all required.'
@@ -72,7 +71,7 @@ exports.update = (req, res) => {
         name: req.body.name,
         message: req.body.message,
         creatorId: req.body.creatorId
-    }, {new: true})
+    }, {upsert: true})
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({

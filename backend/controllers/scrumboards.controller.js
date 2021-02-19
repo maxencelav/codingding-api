@@ -73,7 +73,7 @@ exports.update = (req, res) => {
         date: Date.now(),
         wishId: req.body.wishId,
         creatorId: req.body.creatorId
-    }, {new: true})
+    }, {upsert: true})
         .then(scrumboard => {
             if(!scrumboard) {
                 return res.status(404).send({
@@ -121,7 +121,7 @@ exports.addMember = (req, res) => {
     // Find note and update it with the request body
     Achievement.findByIdAndUpdate(req.params.scrumboardId, {
         $set: {members: req.user.id}
-    },{new: true})
+    },{upsert: true})
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({

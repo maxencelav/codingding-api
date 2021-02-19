@@ -81,7 +81,7 @@ exports.update = (req, res) => {
         date: Date.now(),
         boardId: req.body.boardId,
         creatorId: req.body.creatorId
-    }, {new: true})
+    }, {upsert: true})
         .then(task => {
             if(!task) {
                 return res.status(404).send({

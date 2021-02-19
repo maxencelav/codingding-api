@@ -71,7 +71,7 @@ exports.update = (req, res) => {
         date: Date.now(),
         type: req.body.type,
         creatorId: req.body.creatorId
-    }, {new: true})
+    }, {upsert: true})
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
