@@ -22,7 +22,7 @@ exports.create = async (req, res) => {
             res.send(data);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Error while creating User."
+            message: err.message || "Error while creating Achievements."
         })
     });
 };
@@ -67,11 +67,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
 
     // Find note and update it with the request body
-    Achievement.findByIdAndUpdate(req.params.achievementId, {
-        name: req.body.name,
-        message: req.body.message,
-        creatorId: req.body.creatorId
-    }, {upsert: true})
+    Achievement.findByIdAndUpdate(req.params.achievementId, req.body, {upsert: true})
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
@@ -100,11 +96,11 @@ exports.delete = (req, res) => {
                     message: "Cannot delete, User not found with id " + req.params.achievementId
                 });
             }
-            res.send({message: "User deleted successfully!"});
+            res.send({message: "Success deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.achievementId
+                message: "Success not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
@@ -148,7 +144,7 @@ exports.dislike = (req, res) => {
     // Find note and update it with the request body
     Achievement.findByIdAndUpdate(req.params.achievementId, {
         $pull: {likes: req.user.id}
-    },{new: true})
+    },{upsert: true})
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({

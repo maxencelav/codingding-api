@@ -1,21 +1,22 @@
 // Run backend server
 const express = require("express");
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
-const env = require('dotenv').config();
-const cors = require('cors');
 
 // Create Express app
 const app = express()
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:4000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 
 // CORS
-app.use(cors({origin: '*'}));
+app.use(cors());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept", "Authorization");
+    res.header("Access-Control-Allow-Credentials", false);
+
+    next();
+  });
 
 // Launch cookie-parser
 app.use(cookieParser())	

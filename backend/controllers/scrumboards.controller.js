@@ -72,6 +72,7 @@ exports.update = (req, res) => {
         text: req.body.text,
         date: Date.now(),
         wishId: req.body.wishId,
+        members: req.body.members,
         creatorId: req.body.creatorId
     }, {upsert: true})
         .then(scrumboard => {
