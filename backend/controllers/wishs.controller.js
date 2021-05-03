@@ -1,6 +1,6 @@
 const Wish = require('../models/wishs.model.js');
 
-// Create and Save a new Achievement
+// Create and Save a new Wish
 exports.create = async (req, res) => {
 
     if(!req.body.name | !req.body.type) {
@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
         })
     }
 
-    // Create a Achievement
+    // Create a Wish
     const wish = new Wish({
         name: req.body.name,
         date: Date.now(),
@@ -27,7 +27,7 @@ exports.create = async (req, res) => {
     });
 };
 
-// Retrieve and return all Achievement from the database.
+// Retrieve and return all Wish from the database.
 exports.findAll = (req, res) => {
     Wish.find()
         .then(wishs => {
@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Achievement with a Achievement
+// Find a single Wish with a Wish
 exports.findOne = (req, res) => {
     Wish.findById(req.params.wishId)
         .then(achievement => {
@@ -62,10 +62,10 @@ exports.findOne = (req, res) => {
 };
 
 
-// Update a note identified by the noteId in the request
+// Update a Wish identified by the wishId in the request
 exports.update = (req, res) => {
 
-    // Find note and update it with the request body
+    // Find Wish and update it with the request body
     Wish.findByIdAndUpdate(req.params.wishId, {
         name: req.body.name,
         date: Date.now(),
@@ -91,7 +91,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a Achievement with the specified Achievement in the request
+// Delete a Wish with the specified Wish in the request
 exports.delete = (req, res) => {
     Wish.findByIdAndRemove(req.params.wishId)
         .then(user => {

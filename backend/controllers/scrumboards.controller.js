@@ -1,6 +1,6 @@
 const Scrumboard = require('../models/scrumboards.model.js');
 
-// Create and Save a new comment
+// Create and Save a new Scrumboard
 exports.create = async (req, res) => {
 
     if(!req.body.name | !req.body.type) {
@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
         })
     }
 
-    // Create a comment
+    // Create a Scrumboard
     const scrumboard = new Scrumboard({
         name: req.body.name,
         key: req.body.key,
@@ -24,12 +24,12 @@ exports.create = async (req, res) => {
             res.send(data);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Error while creating User."
+            message: err.message || "Error while creating Scrumboard."
         })
     });
 };
 
-// Retrieve and return all comment from the database.
+// Retrieve and return all Scrumboard from the database.
 exports.findAll = (req, res) => {
    Scrumboard.find()
         .then(scrumboards => {
@@ -41,7 +41,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single comment with a comment
+// Find a single Scrumboard with a ScrumboardId
 exports.findOne = (req, res) => {
     Scrumboard.findById(req.params.scrumboardId)
         .then(scrumboard => {
@@ -64,10 +64,10 @@ exports.findOne = (req, res) => {
 };
 
 
-// Update a note identified by the noteId in the request
+// Update a Scrumboard identified by the scrumboardId in the request
 exports.update = (req, res) => {
 
-    // Find note and update it with the request body
+    // Find Scrumboard and update it with the request body
     Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
         text: req.body.text,
         date: Date.now(),
@@ -78,18 +78,18 @@ exports.update = (req, res) => {
         .then(scrumboard => {
             if(!scrumboard) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.scrumboardId
+                    message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
             }
             res.send(scrumboard);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.scrumboardId
+                message: "Scrumboard not found with id " + req.params.scrumboardId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.scrumboardId
+            message: "Error updating Scrumboard with id " + req.params.scrumboardId
         });
     });
 };
@@ -100,18 +100,18 @@ exports.delete = (req, res) => {
         .then(scrumboard => {
             if(!scrumboard) {
                 return res.status(404).send({
-                    message: "Cannot delete, User not found with id " + req.params.scrumboardId
+                    message: "Cannot delete, Scrumboard not found with id " + req.params.scrumboardId
                 });
             }git
-            res.send({message: "User deleted successfully!"});
+            res.send({message: "Scrumboard deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.scrumboardId
+                message: "Scrumboard not found with id " + req.params.scrumboardId
             });
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.scrumboardId
+            message: "Could not delete Scrumboard with id " + req.params.scrumboardId
         });
     });
 };
@@ -119,12 +119,12 @@ exports.delete = (req, res) => {
 // Add member to Scrumboard
 exports.addMember = (req, res) => {
 
-    // Find note and update it with the request body
-    Achievement.findByIdAndUpdate(req.params.scrumboardId, {
+    // Find scrumboard and update it
+    Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
         $set: {members: req.user.id}
     },{upsert: true})
-        .then(achievement => {
-            if(!achievement) {
+        .then(scrumboard => {
+            if(!scrumboard) {
                 return res.status(404).send({
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
@@ -137,7 +137,7 @@ exports.addMember = (req, res) => {
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.scrumboardId
+            message: "Error updating Scrumboard with id " + req.params.scrumboardId
         });
     });
 
@@ -147,12 +147,12 @@ exports.addMember = (req, res) => {
 // Delete member to Scrumboard
 exports.addMember = (req, res) => {
 
-    // Find note and update it with the request body
-    Achievement.findByIdAndUpdate(req.params.scrumboardId, {
+   // Find scrumboard and update it
+    Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
         $pull: {members: req.user.id}
     },{new: true})
-        .then(achievement => {
-            if(!achievement) {
+        .then(scrumboard => {
+            if(!scrumboard) {
                 return res.status(404).send({
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
@@ -165,7 +165,7 @@ exports.addMember = (req, res) => {
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.scrumboardId
+            message: "Error updating Scrumboard with id " + req.params.scrumboardId
         });
     });
 

@@ -46,14 +46,14 @@ exports.findOne = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.achievementId
+                    message: "Achievement not found with id " + req.params.achievementId
                 });
             }
             res.send(achievement);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.achievementId
+                message: "Achievement not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
@@ -71,18 +71,18 @@ exports.update = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.achievementId
+                    message: "Achievement not found with id " + req.params.achievementId
                 });
             }
             res.send(achievement);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.achievementId
+                message: "Achievement not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.achievementId
+            message: "Error updating Achievement with id " + req.params.achievementId
         });
     });
 };
@@ -93,18 +93,18 @@ exports.delete = (req, res) => {
         .then(user => {
             if(!user) {
                 return res.status(404).send({
-                    message: "Cannot delete, User not found with id " + req.params.achievementId
+                    message: "Cannot delete, Achievement not found with id " + req.params.achievementId
                 });
             }
-            res.send({message: "Success deleted successfully!"});
+            res.send({message: "Achievement deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.achievementId
+                message: "Achievement not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.achievementId
+            message: "Could not delete Achievement with id " + req.params.achievementId
         });
     });
 };
@@ -120,18 +120,18 @@ exports.like = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.achievementId
+                    message: "Achievement not found with id " + req.params.achievementId
                 });
             }
             res.redirect('/achievements');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.achievementId
+                message: "Achievement not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.achievementId
+            message: "Error updating Achievement with id " + req.params.achievementId
         });
     });
 
@@ -148,18 +148,18 @@ exports.dislike = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.achievementId
+                    message: "Achievement not found with id " + req.params.achievementId
                 });
             }
             res.redirect('/achievements');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.achievementId
+                message: "Achievement not found with id " + req.params.achievementId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.achievementId
+            message: "Error updating Achievement with id " + req.params.achievementId
         });
     });
 };

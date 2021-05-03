@@ -1,9 +1,9 @@
 const Week = require('../models/agenda.model.js');
 
-// Create and Save a new Achievement
+// Create and Save a new Agenda
 exports.create = async (req, res) => {
 
-    // Create a Achievement
+    // Create a Agenda
     const week = new Week({
         weekNumber: req.body.weekNumber,
         classL1TP: req.body.classL1TP,
@@ -22,45 +22,45 @@ exports.create = async (req, res) => {
     res.json(week);
 };
 
-// Retrieve and return all Achievement from the database.
+// Retrieve and return all Agenda from the database.
 exports.findAll = (req, res) => {
     Week.find()
         .then(weeks => {
             res.send(weeks);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving achievements."
+            message: err.message || "Error while creating Agenda."
         });
     });
 };
 
-// Find a single Achievement with a Achievement
+// Find a single Agenda
 exports.findOne = (req, res) => {
     Week.findById(req.params.scheduleId)
         .then(week => {
             if(!week) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.scheduleId
+                    message: "Agenda not found with id " + req.params.scheduleId
                 });
             }
             res.send(week);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.scheduleId
+                message: "Agenda not found with id " + req.params.scheduleId
             });
         }
         return res.status(500).send({
-            message: "Error retrieving success with id " + req.params.scheduleId
+            message: "Error retrieving Agenda with id " + req.params.scheduleId
         });
     });
 };
 
 
-// Update a note identified by the noteId in the request
+// Update a Agenda identified by the agendaId in the request
 exports.update = (req, res) => {
 
-    // Find note and update it with the request body
+    // Find Agenda and update it with the request body
     Week.findByIdAndUpdate(req.params.taskId, {
         weekNumber: req.body.weekNumber,
         classL1TP: req.body.classL1TP,
@@ -75,36 +75,36 @@ exports.update = (req, res) => {
         .then(week => {
             if(!week) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.scheduleId
+                    message: "Agenda not found with id " + req.params.scheduleId
                 });
             }
             res.send(week);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.scheduleId
+                message: "Agenda not found with id " + req.params.scheduleId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.scheduleId
+            message: "Error updating Agenda with id " + req.params.scheduleId
         });
     });
 };
 
-// Delete a Achievement with the specified Achievement in the request
+// Delete a Agenda with the specified Agenda in the request
 exports.delete = (req, res) => {
     Week.findByIdAndRemove(req.params.scheduleId)
         .then(week => {
             if(!week) {
                 return res.status(404).send({
-                    message: "Cannot delete, User not found with id " + req.params.scheduleId
+                    message: "Cannot delete, Agenda not found with id " + req.params.scheduleId
                 });
             }
-            res.send({message: "User deleted successfully!"});
+            res.send({message: "Agenda deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.scheduleId
+                message: "Agenda not found with id " + req.params.scheduleId
             });
         }
         return res.status(500).send({

@@ -45,14 +45,14 @@ exports.findOne = (req, res) => {
         .then(comment => {
             if(!comment) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.commentId
+                    message: "Comment not found with id " + req.params.commentId
                 });
             }
             res.send(comment);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.commentId
+                message: "Comment not found with id " + req.params.commentId
             });
         }
         return res.status(500).send({
@@ -62,10 +62,10 @@ exports.findOne = (req, res) => {
 };
 
 
-// Update a note identified by the noteId in the request
+// Update a Comment identified by the commentId in the request
 exports.update = (req, res) => {
 
-    // Find note and update it with the request body
+    // Find Comment and update it with the request body
     Comment.findByIdAndUpdate(req.params.commentId, {
         text: req.body.text,
         date: Date.now(),
@@ -75,18 +75,18 @@ exports.update = (req, res) => {
         .then(comment => {
             if(!comment) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.commentId
+                    message: "Comment not found with id " + req.params.commentId
                 });
             }
             res.send(comment);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.commentId
+                message: "Comment not found with id " + req.params.commentId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.commentId
+            message: "Error updating Comment with id " + req.params.commentId
         });
     });
 };
@@ -97,18 +97,18 @@ exports.delete = (req, res) => {
         .then(comment => {
             if(!comment) {
                 return res.status(404).send({
-                    message: "Cannot delete, User not found with id " + req.params.commentId
+                    message: "Cannot delete, Comment not found with id " + req.params.commentId
                 });
             }
-            res.send({message: "User deleted successfully!"});
+            res.send({message: "Comment deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.commentId
+                message: "Comment not found with id " + req.params.commentId
             });
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.commentId
+            message: "Could not delete Comment with id " + req.params.commentId
         });
     });
 };
