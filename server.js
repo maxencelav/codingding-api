@@ -12,10 +12,13 @@ const app = express()
 // CORS
 app.use(cors());
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept", "Authorization");
-    res.header("Access-Control-Allow-Credentials", false);
-
+    let allowedOrigins = ['*']; // list of url-s
+    let origin = req.headers.origin;
+    if (allowedOrigins.indexOf(origin) > -1) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Expose-Headers', 'Content-Disposition');
     next();
   });
 
@@ -75,7 +78,7 @@ require('./backend/routes/achievements.routes.js')(app);
 require('./backend/routes/wishs.routes.js')(app);
 require('./backend/routes/comments.routes.js')(app);
 require('./backend/routes/scrumboard.routes.js')(app);
-require('./backend/routes/tasks.routes.js')(app);
+require('./backend/routes/stories.routes.js')(app);
 require('./backend/routes/agenda.routes.js')(app);
 
 // Welcome message

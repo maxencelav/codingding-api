@@ -16,4 +16,8 @@ module.exports = (app) => {
 
     // Delete a Scrumboard with Id
     app.delete('/scrumboards/:scrumboardId', scrumboards.delete);
+
+    // Create a new Story in Scrumboard with id
+    app.post('scrumboards/:scrumboardId/story', scrumboards.createStory)
+
 }

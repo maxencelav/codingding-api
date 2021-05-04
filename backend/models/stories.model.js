@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema}= mongoose;
 
-const taskSchema = new Schema({
+const storySchema = new Schema({
     name: String,
     key: String,
     type: String,
@@ -11,6 +11,7 @@ const taskSchema = new Schema({
     date: Date,
     boardId: String,
     creatorId: String,
+    status: String
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model('Story', storySchema);

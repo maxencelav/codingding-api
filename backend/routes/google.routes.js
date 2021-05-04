@@ -1,4 +1,5 @@
-var jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
+const middleware = require('../middlewares/middleware')
 
 module.exports = (app) => {
 
@@ -18,15 +19,7 @@ module.exports = (app) => {
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept", "Authorization");
         res.header("Access-Control-Allow-Credentials", true)
 
-       
-        const token = jwt.sign( {
-              user: req.user,
-            },
-            process.env.JWT_KEY,
-            {
-              expiresIn: "7d"
-            }
-          );
+        const token = jwt.sign({user: req.user}, process.env.JWT_KEY, {expiresIn: "7d"});
         res.cookie("token", token, {httpOnly: false})
         res.send(req.user);
     });
