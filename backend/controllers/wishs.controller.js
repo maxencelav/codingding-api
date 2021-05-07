@@ -34,7 +34,7 @@ exports.findAll = (req, res) => {
             res.send(wishs);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving achievements."
+            message: err.message || "Some error occurred while retrieving Wish."
         });
     });
 };
@@ -45,18 +45,18 @@ exports.findOne = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.wishId
+                    message: "Wish not found with id " + req.params.wishId
                 });
             }
             res.send(achievement);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.wishId
+                message: "Wish not found with id " + req.params.wishId
             });
         }
         return res.status(500).send({
-            message: "Error retrieving success with id " + req.params.wishId
+            message: "Error retrieving Wish with id " + req.params.wishId
         });
     });
 };
@@ -75,18 +75,18 @@ exports.update = (req, res) => {
         .then(achievement => {
             if(!achievement) {
                 return res.status(404).send({
-                    message: "Success not found with id " + req.params.wishId
+                    message: "Wish not found with id " + req.params.wishId
                 });
             }
             res.send(achievement);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Success not found with id " + req.params.wishId
+                message: "Wish not found with id " + req.params.wishId
             });
         }
         return res.status(500).send({
-            message: "Error updating Success with id " + req.params.wishId
+            message: "Error updating Wish with id " + req.params.wishId
         });
     });
 };
@@ -97,18 +97,18 @@ exports.delete = (req, res) => {
         .then(user => {
             if(!user) {
                 return res.status(404).send({
-                    message: "Cannot delete, User not found with id " + req.params.wishId
+                    message: "Cannot delete, Wish not found with id " + req.params.wishId
                 });
             }
-            res.send({message: "User deleted successfully!"});
+            res.send({message: "Wish deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.wishId
+                message: "Wish not found with id " + req.params.wishId
             });
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.wishId
+            message: "Could not delete Wish with id " + req.params.wishId
         });
     });
 };
