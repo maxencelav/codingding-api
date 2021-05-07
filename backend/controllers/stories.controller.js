@@ -20,7 +20,7 @@ exports.create = async (req, res) => {
         date: Date.now(),
         boardId: req.body.boardId,
         creatorId: req.body.creatorId,
-        status: req.body.status
+        status: 0
     });
 
     story.save()
@@ -132,6 +132,32 @@ exports.findAllFromScrum = (req, res) => {
         }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving storys."
+        });
+    });
+};
+
+// Update a story identified by the storyId in the request
+exports.updateDrag = (req, res) => {
+
+    // Find story and update it with the request body
+    Story.findByIdAndUpdate(req.params.storyId, {
+        status: req.body.status
+    })
+        .then(story => {
+            if(!story) {
+                return res.status(404).send({
+                    message: "story not found with id " + req.params.storyId
+                });
+            }
+            res.send(story);
+        }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "story not found with id " + req.params.storyId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating story with id " + req.params.storyId
         });
     });
 };

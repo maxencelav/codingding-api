@@ -111,12 +111,12 @@ exports.update = (req, res) => {
 
     // Find Scrumboard and update it with the request body
     Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
-        text: req.body.text,
+        name: req.body.name,
+        key: req.body.key,
+        type: req.body.type,
+        description: req.body.description,
         date: Date.now(),
-        wishId: req.body.wishId,
-        members: req.body.members,
-        creatorId: req.body.creatorId,
-        stories: req.body.stories
+        creatorId: req.body.creatorId
     }, {upsert: true})
         .then(scrumboard => {
             if(!scrumboard) {
@@ -145,7 +145,7 @@ exports.delete = (req, res) => {
                 return res.status(404).send({
                     message: "Cannot delete, Scrumboard not found with id " + req.params.scrumboardId
                 });
-            }git
+            }
             res.send({message: "Scrumboard deleted successfully!"});
         }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
@@ -161,18 +161,17 @@ exports.delete = (req, res) => {
 
 // Add member to Scrumboard
 exports.addMember = (req, res) => {
-
     // Find scrumboard and update it
     Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
-        $set: {members: req.user.id}
-    },{upsert: true})
+        $set: {members: req.body.members}
+    })
         .then(scrumboard => {
             if(!scrumboard) {
                 return res.status(404).send({
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
             }
-            res.redirect('/scrumboards');
+            res.send('Add member success !');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -192,7 +191,7 @@ exports.deleteMember = (req, res) => {
 
    // Find scrumboard and update it
     Scrumboard.findByIdAndUpdate(req.params.scrumboardId, {
-        $pull: {members: req.user.id}
+        $pull: {members: req.body.members}
     },{new: true})
         .then(scrumboard => {
             if(!scrumboard) {
@@ -200,7 +199,7 @@ exports.deleteMember = (req, res) => {
                     message: "Scrumboard not found with id " + req.params.scrumboardId
                 });
             }
-            res.redirect('/scrumboards');
+            res.send('Delete member from scrum');
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({

@@ -4,9 +4,10 @@ const {Schema}= mongoose;
 const userSchema = new Schema({
     firstName: String,
     lastName: String,
+    fullName: String,
     email: String,
     profilePic: String,
-    classYear: Number,
+    classYear: String,
     classStatus: String,
     classLocation: String,
     googleId: String,

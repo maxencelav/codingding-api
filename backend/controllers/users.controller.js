@@ -71,7 +71,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
 
     // Find note and update it with the request body
-    User.findByIdAndUpdate(req.params.userId, req.body, {upsert: true})
+    User.findByIdAndUpdate(req.params.userId, req.body)
         .then(user => {
             if(!user) {
                 return res.status(404).send({

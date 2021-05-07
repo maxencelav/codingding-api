@@ -20,4 +20,10 @@ module.exports = (app) => {
     // Create a new Story in Scrumboard with id
     app.post('scrumboards/:scrumboardId/story', scrumboards.createStory)
 
+    // Add member to scrumboard
+    app.put('/scrumboards/:scrumboardId/addMember', scrumboards.addMember)
+
+    // Delete member to scrumboard
+    app.delete('/scrumboards/:scrumboardId/deleteMember', scrumboards.deleteMember)
+
 }

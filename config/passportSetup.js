@@ -18,12 +18,13 @@ passport.use(new GoogleStrategy(
                     googleId: profile.id,
                     firstName: profile.name.givenName,
                     lastName: profile.name.familyName, 
+                    fullName: profile.name.givenName + " " + profile.name.familyName,
                     profilePic: profile.photos[0].value,
                     email: profile.emails[0].value,
                     classYear: "",
                     classStatus: "",
                     classLocation: "",
-                    gitHubLinks: ""
+                    gitHubLink: ""
                 }).save()
                     .then((newUser) => {
                     done(null, newUser)

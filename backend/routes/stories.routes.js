@@ -13,6 +13,9 @@ module.exports = (app) => {
     //  Update a Story with storyId
     app.put('/stories/:storyId', stories.update);
 
+    //
+    app.put('/stories/:boardId/drag', stories.updateDrag)
+
     // Delete a Story with storyId
     app.delete('/stories/:storyId', stories.delete);
 
